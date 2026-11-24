@@ -1,0 +1,22 @@
+[package]
+name = "tree_auditor"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+jwalk = "0.8"
+chrono = "0.4"
+clap = { version = "4.4", features = ["derive"] }
+windows = { version = "0.52", features = [
+    "Win32_Storage_FileSystem",
+    "Win32_Foundation",
+] }
+
+[build-dependencies]
+winres = "0.1"
+
+[profile.release]
+opt-level = "z"
+lto = true
+panic = "abort"
+strip = true
